@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Coffee blog</h2>
+    <form action="success.html"
+    method="GET">
+    <label for="name">Название напитка</label></td>
+<input type="text" id="name" name="name" placeholder="Американо">
+    
+    <footer>Sort Coffee</footer>
+    <select> id="type" name="type">
+    <option>capuccino</option>
+    <option>Arabic</option>
+    <option>Latte</option>
+    </select>
+
+    <br>Крепость обжарки</br>
+    <input type="radio">Strong
+    <br>
+    <input type="radio">Medium
+    <br>
+    <input type="radio">light
+    <br>
+    <label for="image">Изображение</label></td>
+    <input type="image" id="image" name="image" placeholder="http://site.com/img.png">
+    <div></div>
+<br>
+    <label for="cost">Стоимость напитка</label></td>
+    <input type="cost" id="cost" name="cost" placeholder="100">
+
+</div>
+
+</form>
+</body>
+<script> 
+    const f = document.forms[0]; 
+    let tr = document.getElementById("table"); 
+    let t = tr; 
+    f.addEventListener("submit", (e) => { 
+        e.preventDefault(); 
+        let body = {}; 
+        for (let i = 0; i < f.elements.length; i++) { 
+            let tag = f[i]; 
+            if (tag.name) { 
+                if (tag.type === "radio" && tag.checked) { 
+                    body[tag.name] = tag.value; 
+                } else if (tag.type !== "radio") { 
+                    body[tag.name] = tag.value; 
+                } 
+            } 
+        } 
+        console.log(body); 
+        let html = "<tr>"; 
+        html += `<td><img src="${body.image}" width="50" alt="${body.title}"></td>`; 
+        html += `<td>${body.title || ""}</td>`; 
+        html += `<td>${body.sort || ""}</td>`; 
+        html += `<td>${body.strong || ""}</td>`; 
+        html += `<td>${body.cost || ""}</td>`; 
+        html += `<td>${body.description || ""}</td>`; 
+        html += "</tr>" 
+        t.innerHTML += html; 
+    }) 
+</script>
+</html>
