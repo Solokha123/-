@@ -7,32 +7,40 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
     <h2>Coffee blog</h2>
     <form action="success.html"
     method="GET">
     <label for="name">Название напитка</label></td>
 <input type="text" id="name" name="name" placeholder="Американо">
-    
-    <footer>Sort Coffee</footer>
+</div>
+<div>
+    <label for="type">Сорт кофе</label>
     <select> id="type" name="type">
-    <option>capuccino</option>
-    <option>Arabic</option>
-    <option>Latte</option>
+        <option>capuccino</option>
+        <option>Arabic</option>
+        <option>Latte</option>
     </select>
-
-    <br>Крепость обжарки</br>
-    <input type="radio">Strong
-    <br>
-    <input type="radio">Medium
-    <br>
-    <input type="radio">light
+<div></div>
+    <label>Крепость обжарки</label>
+        <input type="radio">Strong
+        <input type="radio">Medium
+        <input type="radio">light
     <br>
     <label for="image">Изображение</label></td>
-    <input type="image" id="image" name="image" placeholder="http://site.com/img.png">
-    <div></div>
+        <input type="text" id="image" placeholder="http://site.com/img.png"> 
+
 <br>
     <label for="cost">Стоимость напитка</label></td>
     <input type="cost" id="cost" name="cost" placeholder="100">
+<div></div>
+
+    <label for="description">Описание</label> 
+            <textarea id="description"></textarea> 
+            <div></div>
+            <button type="button" onclick="addCoffee()">Добавить напиток</button>
+
+
 
 </div>
 
@@ -65,6 +73,6 @@
         html += `<td>${body.description || ""}</td>`; 
         html += "</tr>" 
         t.innerHTML += html; 
-    }) 
+    }
 </script>
 </html>
